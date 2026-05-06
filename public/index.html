@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src="scripts/loginScript.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Shopping List</h1>
+        <section>
+            <h2>Please Log In</h2>
+            <div id="login">
+                <h3>Login</h3>
+                    <p>
+                        <label for="username_text">Username:</label>
+                        <input id="username_text" type="text" name="username">
+                    </p>
+                    <p>
+                        <label for="password_text">Password:</label>
+                        <input id="password_text" type="password" name="password">
+                    </p>
+                    <input id="create_button" type="submit" value="Create Account" class="hide">
+                    <button id="login_button" type="button" onclick="login()">Login</button>
+            </div>
+            <div>
+                <p>
+                    <a href="#" id="switch" onclick="swapBetweenLoginAndCreate()">Switch to Create Account</a>
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

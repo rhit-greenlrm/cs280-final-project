@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping List</title>
+        <script type="text/javascript" src="scripts/script.js"></script>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <h1>Shopping List</h1>
+
+            <p><input type="text" id="text1" value="cheese" name="item"></p>
+            <p><input id="button1" type="button" value="Add Item To List">
+
+
+        <section name="to_get">
+            <h2>To Get:</h2>
+            <p id="loading" class="loading">Loading...</p>
+                <ul id="list1">
+                </ul>
+        </section>
+        <section name="got">
+            <h2>Got:</h2>
+            <p id="loading"  class="loading">Loading...</p>
+                <ul id="list2">
+                </ul>
+        </section>
+        <hr>
+        <section>
+            <h2>Add Items with Images</h2>
+            <form method="POST" action="/list/image" enctype="multipart/form-data">
+                <p><input type="text" id="itemWithImageName" value="block cheese" name="itemWithImageName"></p>
+                <p><input id="imageData" name="imageData" type="file" accept="image/png, image/jpeg, image/jpg"></p>
+                <p><input type="submit" value="Add Item To List With Image"></p>
+            </form>
+        </section>
+        <footer>
+            <p><button type="button" onclick="logout()">Logout</button></p>
+        </footer>
+    </body>
+</html>
