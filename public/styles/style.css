@@ -20,6 +20,15 @@ button {
     color: #49006A;
     border-color: #49006A;
     border-radius: 4px;
-    margin: auto;
 }
 
+label {
+    color: #49006A;
+    text-align: center;
+}
+
+input {
+    background-color: #FFF8FD;
+    border-color: #49006A;
+    border-radius: 4px;
+}
