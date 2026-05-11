@@ -80,9 +80,9 @@ def update_profile(profile):
 
 
 #TODO complete patch function to allow user prefernce changing
-@app.patch("") #TODO ??? need to settle list/db place for user preferences
-@require_basic_auth
-def update_user_preferences(): #TODO determine correct parameter (user data/profile?)
+#@app.patch("") #TODO ??? need to settle list/db place for user preferences
+#@require_basic_auth
+#def update_user_preferences(): #TODO determine correct parameter (user data/profile?)
     #TODO complete
     return flask.Response(status="200 OK",
                           headers={"Content-Type": "application/json"},
