@@ -5,16 +5,18 @@ body {
 
 .login {
     color: #49006A;
-    vertical-align: middle;
+    text-align: center;
 }
 
 h1 {
     color:#49006A; 
     font-weight: bold;
     font-family: Helvetica;
+    text-align: center;
 } 
 
 h2 {
     color:#49006A; 
     font-family: Helvetica;
+    text-align: center;
 }
