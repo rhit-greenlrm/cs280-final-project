@@ -19,6 +19,7 @@ button {
     background-color: #FFF8FD;
     color: #49006A;
     border-color: #49006A;
-    border-radius: 1%;
+    border-radius: 4px;
+    margin: auto;
 }
 
