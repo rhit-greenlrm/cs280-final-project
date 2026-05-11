@@ -36,12 +36,12 @@ def require_basic_auth(f):
     @functools.wraps(f)
     def wrap(**kwargs):
         auth = flask.request.authorization
-
-#         if auth is not None and auth.get("username") == "abc" and auth.get("password") == '1234':
-#             return f(**kwargs)
-#         else:
-#             return flask.Response(status="401 Unauthorized", 
-#                               headers={"WWW-Authenticate": "Basic realm='Shopping cart'"})
+        #TODO modify!!!!
+        if auth is not None and auth.get("username") == "abc" and auth.get("password") == '1234':
+            return f(**kwargs)
+        else:
+            return flask.Response(status="401 Unauthorized", 
+                              headers={"WWW-Authenticate": "Basic realm='Shopping cart'"})
     return wrap
 
 @app.get("/list")
@@ -58,14 +58,12 @@ def get_profiles():
 @app.post("/list/profile")
 @require_basic_auth
 def add_profile_to_list():
-#     item = flask.request.form['itemWithImageName']
+    profile = flask.request.form['itemWithImageName'] #TODO change all of this function
     filepath = process_image_file(flask.request)
-#     if filepath is None: TODO  remove since imag eis required?
-#         dataservice.add_item_to_list(item)
-#     else:
-#         # need to replace public/ because the final serving path is relative
-#         # to the html file, not the server. 
-#         dataservice.add_item_with_image(item, filepath.replace("public/",""))
+
+    # need to replace public/ because the final serving path is relative
+    # to the html file, not the server. 
+    dataservice.add_animal(profile, filepath.replace("public/",""))
     return flask.redirect("/employee_action.html")
 
 
