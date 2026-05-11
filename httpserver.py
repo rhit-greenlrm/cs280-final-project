@@ -1,19 +1,17 @@
-import flask
-import json
-import dataservice
 import os
+import json
+import flask
+import functools
+import dataservice
 from flask import jsonify
 from flask import request
+from flask_jwt_extended import JWTManager
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import verify_jwt_in_request
 
-#from flask_jwt_extended import create_access_token
-#from flask_jwt_extended import verify_jwt_in_request
-#from flask_jwt_extended import get_jwt_identity
-#from flask_jwt_extended import jwt_required
-#from flask_jwt_extended import JWTManager
-
-
-
-#old code referenced from securityintro livecoding 
+#code referenced from securityintro livecoding 
 from werkzeug.utils import secure_filename
 IMAGE_FOLDER = 'public/images'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -28,76 +26,82 @@ app.config['IMAGE_FOLDER'] = IMAGE_FOLDER
 def shutdown():
     os._exit(0)
 
-import functools
 
+#TODO remove unused imports
+#TODO replace commented lines/functions with versions for animal profiles
+#TODO reference rest api plan for accuracy 
+
+#TODO set up employee vs regular user logins 
 def require_basic_auth(f):
     @functools.wraps(f)
     def wrap(**kwargs):
         auth = flask.request.authorization
 
-        if auth is not None and auth.get("username") == "abc" and auth.get("password") == '1234':
-            return f(**kwargs)
-        else:
-            return flask.Response(status="401 Unauthorized", 
-                              headers={"WWW-Authenticate": "Basic realm='Shopping cart'"})
+#         if auth is not None and auth.get("username") == "abc" and auth.get("password") == '1234':
+#             return f(**kwargs)
+#         else:
+#             return flask.Response(status="401 Unauthorized", 
+#                               headers={"WWW-Authenticate": "Basic realm='Shopping cart'"})
     return wrap
 
 @app.get("/list")
-@require_basic_auth
-def get_list():
+@require_basic_auth 
+def get_profiles():
     return flask.Response(status="200 OK", 
                             headers={"Content-Type": "application/json"}, 
-                            response = json.dumps(dataservice.get_shopping_list()))
+                            response = json.dumps(dataservice.get_profile_list()))
 
 
-     
-@app.post("/list/<item>")
+#TODO create get function to get statistics
+
+#TODO make this the main upload for image and data
+@app.post("/list/profile")
 @require_basic_auth
-def post_list_item(item):
-    dataservice.add_item_to_list(item)
-    return flask.Response(status="201 Created",
-                          headers={"Content-Type": "application/json"},
-                          response = json.dumps(dataservice.get_shopping_list()))
-
-
-@app.post("/list/image")
-@require_basic_auth
-def add_image_to_item():
-    item = flask.request.form['itemWithImageName']
+def add_profile_to_list():
+#     item = flask.request.form['itemWithImageName']
     filepath = process_image_file(flask.request)
-    if filepath is None:
-        dataservice.add_item_to_list(item)
-    else:
-        # need to replace public/ because the final serving path is relative
-        # to the html file, not the server. 
-        dataservice.add_item_with_image(item, filepath.replace("public/",""))
-    return flask.redirect("/shopping.html")
+#     if filepath is None: TODO  remove since imag eis required?
+#         dataservice.add_item_to_list(item)
+#     else:
+#         # need to replace public/ because the final serving path is relative
+#         # to the html file, not the server. 
+#         dataservice.add_item_with_image(item, filepath.replace("public/",""))
+    return flask.redirect("/shopping.html") #TODO replace with employee dashboard 
 
 
-@app.patch("/list/<item>")
+#TODO change to allow editing of animal data
+@app.patch("/list/<profile>")  #TODO check format?
 @require_basic_auth
-def patch_list_item(item):
-    dataservice.move_item_between_lists(item)
+def update_profile(profile):
+    dataservice.update_profile_data(profile)
     return flask.Response(status="200 OK",
                           headers={"Content-Type": "application/json"},
-                          response = json.dumps(dataservice.get_shopping_list()))
+                          response = json.dumps(dataservice.get_profile_list()))
 
 
-@app.delete("/list/<item>")
+#TODO complete patch function to allow user prefernce changing
+@app.patch("") #TODO ??? need to settle list/db place for user preferences
 @require_basic_auth
-def delete_list_item(item):
-    dataservice.remove_item(item)
+def update_user_preferences(): #TODO determine correct parameter (user data/profile?)
+    #TODO complete
     return flask.Response(status="200 OK",
                           headers={"Content-Type": "application/json"},
-                          response = json.dumps(dataservice.get_shopping_list()))
+                          response = json.dumps(dataservice.get_profile_list())) #TODO change response????
 
 
+@app.delete("/list/<profile>")
+@require_basic_auth 
+def delete_profile(profile):
+    dataservice.remove_profile(profile)
+    return flask.Response(status="200 OK",
+                          headers={"Content-Type": "application/json"},
+                          response = json.dumps(dataservice.get_profile_list()))
 
-# File Processing Code Below
+# File Processing Code (referenced from securityintro)
 
 def allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def process_image_file(request):
     # check if the post request has the file part

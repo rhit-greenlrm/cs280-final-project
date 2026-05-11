@@ -12,44 +12,4 @@ h1 {
     color:#49006A; 
     font-weight: bold;
     font-family: Helvetica;
-}
-
-
-
-
-.delete {
-    color: red;
-    margin-left: 10px;
-    font-size: 0.5em;
-    vertical-align: middle;
-    cursor: pointer;
-    border: none;
-    display: inline-block;
-}
-
-.itemImage {
-    height: 50px;
-    width: 50px;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-li:hover {
-    background-color: darkgrey;
-    width:fit-content;
-}
-
-#list1 li {
-    text-decoration: none;
-}
-
-#list2 li {
-    text-decoration: line-through;
-}
-.loadingHide {
-    display: none;
-}
-
-.hide {
-    display: none;
-}
+} 

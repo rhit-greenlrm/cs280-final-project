@@ -1,7 +1,9 @@
 import pickledb
 import os
 
-db_path = 'shopping_list.db'
+#TODO: replace commented lines/functions with versions for animal profiles
+
+db_path = 'pet_list.db'
 users_key = "users"
 password_key = "password"
 global_db = None
@@ -11,10 +13,7 @@ def load_db():
     db_file_already_exists = os.path.exists(db_path)
     global_db = pickledb.PickleDB(db_path)
     if not db_file_already_exists:
-        global_db.set("milk", { "got": False })
-        global_db.set("eggs", { "got": False })
-        global_db.set("bread", { "got": False })
-        global_db.set("sugar", { "got": False })
+        #global_db.set("milk", { "got": False }) TODO add default/og animals 
         global_db.save()
 
 def get_db():
@@ -24,49 +23,41 @@ def get_db():
     return global_db
 
 
-def get_shopping_list():
+def get_profile_list():
     db = get_db()
-    all_items = db.all()
-    shopping_list_items = {}
-    for x in all_items:
-        shopping_list_items[x] = db.get(x)
+    all_pets = db.all()
+    animal_list = {}
+    for x in all_pets:
+        animal_list[x] = db.get(x)
 
-    return shopping_list_items
+    return animal_list
 
-def add_item_to_list(item):
+#TODO finish
+def add_animal(profile, filepath):
     db = get_db()
-    if db.get(item) is None:
-        # prevent duplicates
-        db.set(item, {"got": False})
+#     if db.get(item) is None:
+#         # prevent duplicates
+#         data = {"got": False, "image_path": filepath}
+#         print(data)
+#         db.set(item, data)
     db.save()
-    return get_shopping_list()
+    return get_profile_list()
 
-
-
-def add_item_with_image(item, filepath):
+#TODO finish
+def update_profile_data(profile):
     db = get_db()
-    if db.get(item) is None:
-        # prevent duplicates
-        data = {"got": False, "image_path": filepath}
-        print(data)
-        db.set(item, data)
-    db.save()
-    return get_shopping_list()
-
-def move_item_between_lists(item):
-    db = get_db()
-    db_item = db.get(item)
+    db_item = db.get(profile)
     if db_item is None:
-        return get_shopping_list()
-    db_item["got"] = not db_item["got"]
-    db.set(item, db_item)
+        return get_profile_list()
+    #TODO \/ replace with updating profile data
+#     db_item["got"] = not db_item["got"]
+#     db.set(item, db_item)
     db.save()
-    return get_shopping_list()
+    return get_profile_list()
 
-
-def remove_item(item):
+def remove_profile(profile):
     db = get_db()
-    db.remove(item)
+    db.remove(profile)
     db.save()
-    return get_shopping_list()
+    return get_profile_list()
 
