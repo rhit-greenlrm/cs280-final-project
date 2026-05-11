@@ -2,6 +2,14 @@ body {
     background-color: #FCEFF9;
 }
 
+.banner{
+    background-color: #C398B4;
+}
+
+.petbanner{
+    background-color: #C398B4;
+}
+
 h1 {
     color:#49006A; 
     font-weight: bold;
