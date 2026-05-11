@@ -5,11 +5,11 @@ import functools
 import dataservice
 from flask import jsonify
 from flask import request
-from flask_jwt_extended import JWTManager
-from flask_jwt_extended import jwt_required
-from flask_jwt_extended import get_jwt_identity
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import verify_jwt_in_request
+#from flask_jwt_extended import JWTManager TODO
+#from flask_jwt_extended import jwt_required TODO
+#from flask_jwt_extended import get_jwt_identity TODO
+#from flask_jwt_extended import create_access_token TODO
+#from flask_jwt_extended import verify_jwt_in_request TODO
 
 #code referenced from securityintro livecoding 
 from werkzeug.utils import secure_filename
@@ -66,7 +66,7 @@ def add_profile_to_list():
 #         # need to replace public/ because the final serving path is relative
 #         # to the html file, not the server. 
 #         dataservice.add_item_with_image(item, filepath.replace("public/",""))
-    return flask.redirect("/shopping.html") #TODO replace with employee dashboard 
+    return flask.redirect("/employee_action.html")
 
 
 #TODO change to allow editing of animal data
