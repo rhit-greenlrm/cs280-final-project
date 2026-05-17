@@ -12,8 +12,9 @@ body {
 
 #login {
     display: flex;
-    align-items: center;
-    justify-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 h1 {
