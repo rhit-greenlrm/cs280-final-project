@@ -18,7 +18,8 @@
         <!--image upload-->
 
         <label for species>Species: </label>
-        <select id="species" name="species">
+        <select id="species" name="species" required>
+            <option value="" disabled>Select one: </option>
             <option value="cat">Cat</option>
             <option value="dog">Dog</option>
             <option value="bird">Bird</option>
@@ -26,7 +27,8 @@
         </select>
 
         <label for age>Age: </label>
-        <select id="age" name="age">
+        <select id="age" name="age" required>
+            <option value="" disabled>Select one: </option>
             <option value="baby">0-3 Years</option>
             <option value="young">3-5 Years</option>
             <option value="middleage">5-10 Years</option>
@@ -34,14 +36,18 @@
         </select>
 
         <label for personality>Personality: </label>
-        <select id="personality" name="personality">
+        <select id="personality" name="personality" required>
+            <option value="" disabled>Select one: </option>
             <option value="calm">Calm</option>
             <option value="energetic">Energetic</option>
             <option value="aggressive">Aggressive</option>
             <option value="friendly">Friendly</option>
         </select>
 
+        <label for notes>Additional Notes: </label>
         <input id="notes" name="notes" type="text">
+
+        <button type="submit" id="submit" name="submit">Add Pet</button>
 
 </body>
 </html>
