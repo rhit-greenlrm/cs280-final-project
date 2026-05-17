@@ -10,6 +10,10 @@ body {
     background-color: #C398B4;
 }
 
+.login {
+    align-items: center;
+}
+
 h1 {
     color:#49006A; 
     font-weight: bold;

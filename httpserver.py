@@ -37,11 +37,11 @@ def require_basic_auth(f):
     def wrap(**kwargs):
         auth = flask.request.authorization
         #TODO modify!!!!
-        if auth is not None and auth.get("username") == "abc" and auth.get("password") == '1234':
-            return f(**kwargs)
+        if auth is not None and auth.get("username") == "Employee" and auth.get("password") == 'DoingWork':
+            return f(**kwargs) #make this take them to the employee page
         else:
             return flask.Response(status="401 Unauthorized", 
-                              headers={"WWW-Authenticate": "Basic realm='Shopping cart'"})
+                              headers={"WWW-Authenticate": "Basic realm='Shopping cart'"}) #make this tell them to create account instead
     return wrap
 
 @app.get("/list")
