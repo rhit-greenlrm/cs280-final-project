@@ -8,7 +8,7 @@ body {
 
 #petbanner{
     background-color: #C398B4;
-    margin: auto;
+    
 }
 
 #login {
@@ -23,6 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    size: 50px;
 }
 
 #addPetForm {
