@@ -14,12 +14,13 @@
         <!-- fake logo -->
     </section>
 
+    <div id="addPetForm">
     <!-- form including all upload criteria-->
         <!--image upload-->
 
         <label for species>Species: </label>
         <select id="species" name="species" required>
-            <option value="" disabled>Select one: </option>
+            <option value="" disabled selected>Select one: </option>
             <option value="cat">Cat</option>
             <option value="dog">Dog</option>
             <option value="bird">Bird</option>
@@ -28,7 +29,7 @@
 
         <label for age>Age: </label>
         <select id="age" name="age" required>
-            <option value="" disabled>Select one: </option>
+            <option value="" disabled selected>Select one: </option>
             <option value="baby">0-3 Years</option>
             <option value="young">3-5 Years</option>
             <option value="middleage">5-10 Years</option>
@@ -37,7 +38,7 @@
 
         <label for personality>Personality: </label>
         <select id="personality" name="personality" required>
-            <option value="" disabled>Select one: </option>
+            <option value="" disabled selected>Select one: </option>
             <option value="calm">Calm</option>
             <option value="energetic">Energetic</option>
             <option value="aggressive">Aggressive</option>
@@ -47,7 +48,9 @@
         <label for notes>Additional Notes: </label>
         <input id="notes" name="notes" type="text">
 
-        <button type="submit" id="submit" name="submit">Add Pet</button>
+        <button type="submit" id="submit" name="submit">Add</button>
+    
+    </div>
 
 </body>
 </html>

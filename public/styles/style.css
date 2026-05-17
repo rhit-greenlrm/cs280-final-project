@@ -2,11 +2,11 @@ body {
     background-color: #FCEFF9;
 }
 
-.banner{
+#banner{
     background-color: #C398B4;
 }
 
-.petbanner{
+#petbanner{
     background-color: #C398B4;
 }
 
@@ -22,6 +22,13 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+#addPetForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 h1 {
