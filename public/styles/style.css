@@ -13,13 +13,14 @@ body {
 #login {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 #buttons {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 h1 {
