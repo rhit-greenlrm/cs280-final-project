@@ -5,3 +5,6 @@
 * create account button should create a new account where user data can be stored (FUNCTIONAL)
 */
 
+document.addEventListener("DOMContentLoaded", function(){
+    
+});
