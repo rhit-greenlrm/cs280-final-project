@@ -5,7 +5,3 @@
 * displaying pet data alongside correct photo
 * remove button should remove a pet from the database
 */
-
-document.getElementById(add).addEventListener(onclick, {
-    //go to new pet page when add pet button is pressed
-})
