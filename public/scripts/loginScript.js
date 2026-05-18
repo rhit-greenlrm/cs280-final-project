@@ -6,5 +6,8 @@
 */
 
 document.addEventListener("DOMContentLoaded", function(){
-    
+    document.getElementById("login").addEventListener("submit", function(){
+           //TODO handle login in httpserver
+    });
+
 });
