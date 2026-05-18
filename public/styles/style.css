@@ -23,7 +23,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    size: 50px;
 }
 
 #addPetForm {
