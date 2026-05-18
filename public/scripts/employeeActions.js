@@ -6,6 +6,6 @@
 * remove button should remove a pet from the database
 */
 
-document.getElementById(add).addEventListener(onclick, function(){
+document.getElementById("add").addEventListener(onclick, function(){
     window.location.href="./add_pet.html";
 });
