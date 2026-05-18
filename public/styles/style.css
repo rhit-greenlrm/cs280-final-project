@@ -8,6 +8,9 @@ body {
 
 #petbanner{
     background-color: #C398B4;
+    padding: 20px 10%;
+    width: 100%;
+    box-sizing: border-box;
     
 }
 
