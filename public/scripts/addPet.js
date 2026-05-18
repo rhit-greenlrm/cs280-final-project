@@ -1,5 +1,7 @@
-/* addPet TODOS:
-* add full functionality for the form
-* adding to database and displaying in the list afterwards
-* should return the user to the employee dashboard after form submittion
-*/
+
+document.getElementById(newPetForm).onsubmit(function(profile, filepath){
+    //add new pet to database
+    dataservice.add_animal(profile, filepath); 
+
+    //TODO send to employee dashboard
+});
