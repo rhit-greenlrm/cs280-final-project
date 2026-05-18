@@ -7,5 +7,5 @@
 */
 
 document.getElementById("add").addEventListener(onclick, function(){
-    window.location.href="./add_pet.html";
+    window.location.href="http://csse280-08.csse.rose-hulman.edu:8080/add_pet.html";
 });
