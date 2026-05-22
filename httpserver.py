@@ -5,11 +5,6 @@ import functools
 import dataservice
 from flask import jsonify
 from flask import request
-#from flask_jwt_extended import JWTManager TODO
-#from flask_jwt_extended import jwt_required TODO
-#from flask_jwt_extended import get_jwt_identity TODO
-#from flask_jwt_extended import create_access_token TODO
-#from flask_jwt_extended import verify_jwt_in_request TODO
 
 #code referenced from securityintro livecoding 
 from werkzeug.utils import secure_filename
@@ -101,6 +96,7 @@ def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+#TODO ?????
 def process_image_file(request):
     # check if the post request has the file part
     if 'imageData' not in request.files:

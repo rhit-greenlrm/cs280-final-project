@@ -8,15 +8,41 @@
 </head>
 
 <body>
-    <!--banner at top of page -->
-        <section id="banner">
-            <a href="./login.html">Login</a>
-            <a href="./dashboard.html">Dashboard</a>
-            <a href="./adoption_search.html">Adoption Search</a>
+    <section id="banner">
+        <a href="./login.html">Login</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./adoption_search.html">Adoption Search</a>
         <!-- fake logo / name-->
     </section>
 
-    <!-- selection buttons for traits-->
+    <div class="traits">
+        <p><label for species>Species: </label>
+        <select id="species" name="species" required>
+            <option value="" disabled selected>Select one: </option>
+            <option value="cat">Cat</option>
+            <option value="dog">Dog</option>
+            <option value="bird">Bird</option>
+            <option value="bunny">Bunny</option>
+        </select></p>
+
+        <p><label for age>Age: </label>
+        <select id="age" name="age" required>
+            <option value="" disabled selected>Select one: </option>
+            <option value="baby">0-3 Years</option>
+            <option value="young">3-5 Years</option>
+            <option value="middleage">5-10 Years</option>
+            <option value="old">10+ Years</option>
+        </select></p>
+
+        <p><label for personality>Personality: </label>
+        <select id="personality" name="personality" required>
+            <option value="" disabled selected>Select one: </option>
+            <option value="calm">Calm</option>
+            <option value="energetic">Energetic</option>
+            <option value="aggressive">Aggressive</option>
+            <option value="friendly">Friendly</option>
+        </select></p>
+    </div>
 
     <!-- animal profile and text-->
     <!-- looping scroll buttons on sides-->

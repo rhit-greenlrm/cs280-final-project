@@ -2,18 +2,23 @@ import pickledb #TODO import
 import os
 
 db_path = 'pet_list.db'
-users_key = "users"
-password_key = "password"
 global_db = None
 
-#TODO finish
 def load_db():
     global global_db
     db_file_already_exists = os.path.exists(db_path)
     global_db = pickledb.PickleDB(db_path)
     if not db_file_already_exists:
-        #global_db.set("milk", { "got": False }) TODO add default/og animals 
-        global_db.save()
+        baseStats = {
+            "totalAdoptions" : 0,
+            "bySpecies": {"cat":0, "dog":0, "bird":0, "bunny":0},
+            "byAge": {"0-3":0, "3-5":0, "5-10": 0, "10+":0},
+            "byTrait": {"calm": 0, "energetic": 0, "aggressive": 0, "friendly":0},
+            "recentAdopts": []
+        }
+        global_db.set("stats", baseStats) 
+    
+    global_db.save()
 
 def get_db():
     global global_db
@@ -65,8 +70,8 @@ def add_user(username, password):
     db = get_db()
 
     #prevent duplicates
-    if #username in use
-        return False
+    #if #username in use
+    #    return False
     
     user_data = {
         "password": password,
