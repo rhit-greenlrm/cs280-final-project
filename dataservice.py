@@ -60,3 +60,24 @@ def remove_profile(profile):
     db.save()
     return get_profile_list()
 
+
+def add_user(username, password):
+    db = get_db()
+
+    #prevent duplicates
+    if #username in use
+        return False
+    
+    user_data = {
+        "password": password,
+        "position": "user",
+        "preferences": {
+            "species": "",
+            "age_range": "",
+            "personality": ""
+        }
+    }
+    db.set(username, user_data)
+    db.save()
+    return True
+

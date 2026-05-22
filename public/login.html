@@ -14,21 +14,21 @@
         <h1>CS280 Pet Adoption Program</h1>
         
         <section>
-        <form>
+        <form id="loginForm">
             <div id="login">
                     <p>
                         <label for username_text>Username:</label>
-                        <input id="username_text" type="text" name="username">
+                        <input id="username_text" type="text" name="username" required>
                     </p>
                     <p>
                         <label for password_text>Password:</label>
-                        <input id="password_text" type="password" name="password">
+                        <input id="password_text" type="password" name="password" required>
                     </p>
             </div>
 
             <div id="buttons">
-                <button id="switch" type="button" onclick="swapBetweenLoginAndCreate()">Create Account</button>
-                <button id="login_button" type="button" onclick="login()">Log in</button>            
+                <button id="submit" type="submit">Log in</button>
+                <button id="switch" type="button">Create Account</button>            
             </div>
         </form>
         </section>
